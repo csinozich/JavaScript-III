@@ -45,7 +45,7 @@ claire.speak(); // 'Claire says hello'
 // Principle 4
 
 const person = {
-  name: 'Claire';
+  name: 'Claire',
 }
 
 const favoriteFoods = ['Tiramisu', 'Pasta', 'Fried Chicken'];
