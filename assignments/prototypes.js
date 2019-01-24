@@ -56,37 +56,27 @@ function CharacterStats(statsItem) {
   this.name = statsItem.name;
 };
 
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
 CharacterStats.prototype.takeDamage = function () {
   return `${this.name} took damage.`
 };
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-function CharacterStats(statsItem) {
-  GameObject.call(this, statsItem);
-}
-
 function Humanoid(humanoidItem) {
-  GameObject.call(this, humanoidItem);
   CharacterStats.call(this, humanoidItem);
   this.team = humanoidItem.team;
   this.weapons = humanoidItem.weapons;
   this.language = humanoidItem.language;
 };
 
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+
 Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}`
 };
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
 
-function Humanoid(humanoidItem) {
-  GameObject.call(this, humanoidItem);
-}
 
-function Humanoid(humanoidItem) {
-  CharacterStats.call(this, humanoidItem);
-}
 
 
 const mage = new Humanoid({

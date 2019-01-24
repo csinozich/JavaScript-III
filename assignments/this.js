@@ -34,17 +34,17 @@ person.bake(); //uses the parent function (person) to decide what 'this' is
 function NewPerson(name) {
   this.name = name;
   this.greeting  = 'hello';
-  this.speak = function() {
-    console.log(`${this.name} says ${this.greeter}`)
-  }
 }
 
-const claire = newPerson('Claire');
-claire.speak(); // 'Claire says hello'
+NewPerson.prototype.speak = function() {
+  console.log(`${this.name} says ${this.greeting}`)};
+
+const claireS = NewPerson('Claire');
+claireS.speak(); // 'Claire says hello'
 
 // Principle 4
 
-const person = {
+const otherPerson = {
   name: 'Claire',
 }
 
@@ -54,4 +54,4 @@ function nameFoods(favoriteFoods) {
   console.log(`Hello! My name is ${this.name}, and I like to program in ${favoriteFoods}`)
 }
 
-nameFoods.call(person);
+nameFoods.call(otherPerson);
