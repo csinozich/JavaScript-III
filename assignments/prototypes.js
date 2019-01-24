@@ -51,6 +51,7 @@ GameObject.prototype.destroy = function () {
 };
 
 function CharacterStats(statsItem) {
+  GameObject.call(this, statsItem);
   this.healthPoints = statsItem.healthPoints;
   this.name = statsItem.name;
 };
@@ -66,16 +67,16 @@ function CharacterStats(statsItem) {
 }
 
 function Humanoid(humanoidItem) {
+  GameObject.call(this, humanoidItem);
+  CharacterStats.call(this, humanoidItem);
   this.team = humanoidItem.team;
   this.weapons = humanoidItem.weapons;
   this.language = humanoidItem.language;
 };
 
-Humanoid.prototype.greet = function () {
+Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}`
 };
-
-Humanoid.prototype = Object.create(GameObject.prototype);
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
